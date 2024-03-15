@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-image: linear-gradient(153deg, var(--burple-two), #a45deb 100%);
+}
+
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    object-fit: contain;
+  }
+}
+
+.menu {
+  padding: 26px 30px;
+
+  input,
+  button {
+    border-radius: 20px;
+    width: 100%;
+    text-align: center;
+    border: none;
+  }
+
+  input {
+    padding: 13px 0;
+    background-color: var(--white);
+    color: var(--blue-gray-500);
+    font-size: 12px;
+    letter-spacing: 0.43px;
+    margin-bottom: 15px;
+  }
+
+  button {
+    background-color: var(--white-20);
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 13px;
+  }
+}
