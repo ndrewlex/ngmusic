@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   background-image: linear-gradient(153deg, var(--burple-two), #a45deb 100%);
 }
 
@@ -22,22 +22,32 @@
   button {
     border-radius: 20px;
     width: 100%;
-    text-align: center;
     border: none;
+    text-align: center;
   }
 
   input {
-    padding: 13px 0;
+    padding: 13px;
+    box-sizing: border-box;
     background-color: var(--white);
     color: var(--blue-gray-500);
     font-size: 12px;
     letter-spacing: 0.43px;
     margin-bottom: 15px;
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &::placeholder {
+      text-align: center;
+    }
   }
 
   button {
     background-color: var(--white-20);
     color: var(--white);
+    text-align: center;
     margin-bottom: 20px;
     font-size: 14px;
     letter-spacing: 0.5px;

@@ -1,6 +1,6 @@
 .container {
-  height: 100%;
   background-color: var(--pale-grey);
+  min-height: 100vh;
 }
 
 nav {
@@ -9,23 +9,120 @@ nav {
   box-shadow: 0 0 6px 0 rgba(148, 77, 230, 0.75);
   background-image: linear-gradient(100deg, var(--burple-two), #a45deb 100%);
   padding: 18px 15px 22.2px;
-  margin-bottom: 39px;
 }
 
 main {
-  p {
+  display: flex;
+  flex-direction: column;
+  margin: 42px 15px 28px;
+  p.search_result {
     text-align: center;
-    margin: 3px 10px 2px 0;
     font-size: 14px;
     letter-spacing: 0.5px;
     color: #334155;
-    font-weight: normal;
 
     span {
       font-size: 18px;
       color: var(--burple);
       letter-spacing: 0.64px;
       font-weight: 600;
+    }
+  }
+
+  button.load_more {
+    padding: 10px 29px;
+    font-size: 12px;
+    letter-spacing: 0.43px;
+    color: var(--blue-gray-500);
+    border-radius: 17px;
+    background-color: var(--blue-gray-200);
+    border: none;
+    margin: 0 auto;
+  }
+
+  .card_container {
+    margin-top: 18px;
+  }
+
+  .card {
+    margin: 20px 0;
+    padding: 12px 12px 11px 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: var(--white);
+    display: grid;
+    grid: auto / 100px 1fr;
+
+    img {
+      object-fit: cover;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+    }
+
+    .card_detail {
+      margin-left: 12px;
+      display: flex;
+      flex-direction: column;
+
+      .card_detail_content {
+        p {
+          color: #334155;
+        }
+        .artist {
+          font-size: 10px;
+          letter-spacing: 0.36px;
+          margin: 5px 0;
+        }
+        .album_name {
+          margin-bottom: 3px;
+          font-size: 14px;
+          letter-spacing: 0.5px;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+
+      .card_detail_bottom {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: auto;
+
+        div.genre {
+          border-radius: 10px;
+          background-color: #10b981;
+          font-size: 10px;
+          padding: 5px 13px;
+          color: var(--white);
+          margin-top: 8px;
+          margin-right: 8px;
+          max-height: 20px;
+        }
+
+        div.album_price {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: auto;
+          margin-top: 8px;
+
+          p {
+            color: #f5b014;
+            font-size: 12px;
+            margin-left: 6px;
+          }
+
+          img {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
     }
   }
 }
