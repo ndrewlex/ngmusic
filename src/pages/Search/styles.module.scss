@@ -1,0 +1,31 @@
+.container {
+  height: 100%;
+  background-color: var(--pale-grey);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 6px 0 rgba(148, 77, 230, 0.75);
+  background-image: linear-gradient(100deg, var(--burple-two), #a45deb 100%);
+  padding: 18px 15px 22.2px;
+  margin-bottom: 39px;
+}
+
+main {
+  p {
+    text-align: center;
+    margin: 3px 10px 2px 0;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #334155;
+    font-weight: normal;
+
+    span {
+      font-size: 18px;
+      color: var(--burple);
+      letter-spacing: 0.64px;
+      font-weight: 600;
+    }
+  }
+}
