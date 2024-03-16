@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/Home";
-import SearchPage from "./pages/Search";
+import SearchResultPage from "./pages/SearchResult";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/:keyword" element={<SearchResultPage />} />
       </Routes>
     </BrowserRouter>
   );

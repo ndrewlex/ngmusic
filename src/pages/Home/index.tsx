@@ -1,7 +1,10 @@
 import styles from "./styles.module.scss";
 import logoIcon from "./../../assets/logo.svg";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { type ChangeEvent, useState } from "react";
+import InputText from "../../components/InputText";
+import lang from "../../lang";
+import Button from "../../components/Button";
 
 const HomePage = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -14,10 +17,7 @@ const HomePage = () => {
 
   const onSubmitSearch = (e: any) => {
     e.preventDefault();
-    navigate({
-      pathname: "search",
-      search: `?${createSearchParams({ name: searchValue })}`,
-    });
+    navigate(`/${searchValue}`);
   };
   return (
     <div className={styles.container}>
@@ -25,12 +25,14 @@ const HomePage = () => {
         <img src={logoIcon} />
       </div>
       <form className={styles.menu}>
-        <input
-          type="text"
-          placeholder="Artist / Album / Title"
+        <InputText
+          placeholder={lang.input.placeholderSearch}
           onChange={onChangeSearch}
+          value={searchValue}
         />
-        <button onClick={onSubmitSearch}>Search</button>
+        <Button onClick={onSubmitSearch} variant="white" size="md" isFullWidth>
+          {lang.search}
+        </Button>
       </form>
     </div>
   );

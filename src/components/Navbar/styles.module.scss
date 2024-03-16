@@ -1,0 +1,20 @@
+nav.navbar {
+  box-shadow: 0 0 6px 0 rgba(148, 77, 230, 0.75);
+  background-image: linear-gradient(100deg, var(--burple-two), #a45deb 100%);
+
+  padding: 19px 15px 19px;
+  height: 60px;
+  box-sizing: border-box;
+
+  border-bottom-left-radius: 50% 16px; /* Adjust the values to change the curvature */
+  border-bottom-right-radius: 50% 16px; /* Adjust the values to change the curvature */
+
+  div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    img {
+      cursor: pointer;
+    }
+  }
+}

@@ -24,20 +24,11 @@ body {
   padding: 0;
 }
 
+.fullwidth {
+  width: 100%;
+}
+
 #root {
   min-height: 100vh;
   margin: auto;
-}
-
-input {
-  border: none;
-  border-radius: 20px;
-}
-
-input:focus {
-  outline: none;
-}
-
-button {
-  cursor: pointer;
 }

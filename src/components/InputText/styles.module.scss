@@ -1,0 +1,19 @@
+input.input_text {
+  padding: 13px;
+  box-sizing: border-box;
+  background-color: var(--white);
+  color: var(--blue-gray-500);
+  font-size: 12px;
+  letter-spacing: 0.43px;
+  margin-bottom: 15px;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+
+  &:focus {
+    outline: none;
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}

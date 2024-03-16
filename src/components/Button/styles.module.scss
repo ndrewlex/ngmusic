@@ -1,0 +1,33 @@
+button.btn {
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  color: var(--white);
+
+  &.btn_white {
+    background-color: var(--white-20);
+  }
+
+  &.btn_purple {
+    background-image: linear-gradient(98deg, var(--burple-two), #a45deb);
+  }
+
+  &.btn_grey {
+    background-color: var(--blue-gray-200);
+    color: var(--blue-gray-500);
+  }
+
+  &.btn_md {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    padding: 13px 29px;
+    border-radius: 20px;
+  }
+
+  &.btn_sm {
+    font-size: 12px;
+    letter-spacing: 0.43px;
+    padding: 10px 29px;
+    border-radius: 17px;
+  }
+}
