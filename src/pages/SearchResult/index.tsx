@@ -27,7 +27,7 @@ const SearchResultPage = () => {
 
   const fetchAlbumList = useCallback(async () => {
     setLoadingAlbums(true);
-    const { data } = await getAlbumList();
+    const { data } = await getAlbumList(keyword);
     if (data) {
       const albumListData = data.results.slice(0, ALBUM_LIMIT);
       setAlbums(data);
