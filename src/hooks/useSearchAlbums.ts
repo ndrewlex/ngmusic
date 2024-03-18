@@ -4,7 +4,7 @@ const useSearchAlbums = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const term = searchParams.get("term") || "";
+  const term = searchParams.get("term") || "All";
 
   const onSearch = (value: string) => {
     if (value) {
