@@ -5,16 +5,18 @@ import { Fragment, useState } from "react";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 import SearchOverlay from "../SearchOverlay";
+import useSearchAlbums from "../../hooks/useSearchAlbums";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpenMenu, setOpenMenu] = useState(false);
+  const { onSearch } = useSearchAlbums();
   const onOpenMenu = () => setOpenMenu(true);
 
   const onCloseMenu = () => setOpenMenu(false);
 
-  const onSearch = (keyword: string) => {
-    navigate(`/${keyword}`);
+  const handleSearch = (keyword: string) => {
+    onSearch(keyword);
     onCloseMenu();
   };
 
@@ -26,14 +28,14 @@ const Navbar = () => {
     <Fragment>
       <nav className={styles.navbar}>
         <div>
-          <img src={menuIcon} onClick={onOpenMenu} />
+          <img src={menuIcon} onClick={goToHomePage} />
           <img src={ngMusicIcon} onClick={goToHomePage} />
-          <img src={searchIcon} onClick={goToHomePage} />
+          <img src={searchIcon} onClick={onOpenMenu} />
         </div>
       </nav>
 
       {isOpenMenu && (
-        <SearchOverlay onClose={onCloseMenu} onSearch={onSearch} />
+        <SearchOverlay onClose={onCloseMenu} onSearch={handleSearch} />
       )}
     </Fragment>
   );

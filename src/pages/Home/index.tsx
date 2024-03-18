@@ -1,14 +1,14 @@
 import styles from "./styles.module.scss";
 import logoIcon from "./../../assets/logo.svg";
-import { useNavigate } from "react-router-dom";
 import { type ChangeEvent, useState } from "react";
 import InputText from "../../components/InputText";
 import lang from "../../lang";
 import Button from "../../components/Button";
+import useSearchAlbums from "../../hooks/useSearchAlbums";
 
 const HomePage = () => {
   const [searchValue, setSearchValue] = useState("");
-  const navigate = useNavigate();
+  const { onSearch } = useSearchAlbums();
 
   const onChangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -17,7 +17,7 @@ const HomePage = () => {
 
   const onSubmitSearch = (e: any) => {
     e.preventDefault();
-    navigate(`/${searchValue}`);
+    onSearch(searchValue);
   };
   return (
     <div className={styles.container}>

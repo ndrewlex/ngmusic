@@ -4,7 +4,6 @@ import InputText from "../InputText";
 import styles from "./styles.module.scss";
 import closeIcon from "../../assets/close.svg";
 import Button from "../Button";
-import { useNavigate } from "react-router-dom";
 
 type SearchOverlayProps = {
   onClose: () => void;
@@ -12,17 +11,15 @@ type SearchOverlayProps = {
 };
 
 const SearchOverlay = ({ onClose, onSearch }: SearchOverlayProps) => {
-  const [searchValue, setSearchValue] = useState("");
-  const navigate = useNavigate();
+  const [keyword, setKeyword] = useState("");
 
   const onSubmitSearch = (e: any) => {
     e.preventDefault();
-    navigate(`/${searchValue}`);
-    onSearch(searchValue);
+    onSearch(keyword);
   };
 
   const onChangeSearch = (e: any) => {
-    setSearchValue(e.target.value);
+    setKeyword(e.target.value);
   };
 
   return (
@@ -35,7 +32,7 @@ const SearchOverlay = ({ onClose, onSearch }: SearchOverlayProps) => {
         <InputText
           placeholder={lang.input.placeholderSearch}
           onChange={onChangeSearch}
-          value={searchValue}
+          value={keyword}
         />
         <Button onClick={onSubmitSearch} variant="purple" size="md" isFullWidth>
           Search

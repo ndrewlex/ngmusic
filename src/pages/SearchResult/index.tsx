@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import { useParams } from "react-router-dom";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import getAlbumList from "../../services/getAlbumList";
 import {
@@ -10,31 +9,33 @@ import Navbar from "../../components/Navbar";
 import Button from "../../components/Button";
 import AlbumCard from "../../components/AlbumCard";
 import lang from "../../lang";
+import useSearchAlbums from "../../hooks/useSearchAlbums";
 
 const ALBUM_LIMIT = 4;
 
 const SearchResultPage = () => {
-  const { keyword } = useParams();
+  const { term } = useSearchAlbums();
+
   const [albums, setAlbums] = useState<AlbumListResponse>({
     resultCount: 0,
     results: [],
   });
 
-  const [loadingAlbums, setLoadingAlbums] = useState(true);
+  const [loadingAlbums, setLoadingAlbums] = useState(false);
   const [page, setPage] = useState(1);
 
   const [albumList, setAlbumList] = useState<AlbumListResult[]>([]);
 
   const fetchAlbumList = useCallback(async () => {
     setLoadingAlbums(true);
-    const { data } = await getAlbumList(keyword);
+    const { data } = await getAlbumList(term);
     if (data) {
       const albumListData = data.results.slice(0, ALBUM_LIMIT);
       setAlbums(data);
       setAlbumList(albumListData);
     }
     setLoadingAlbums(false);
-  }, [keyword]);
+  }, [term]);
 
   const onLoadMore = () => {
     const newAlbumListData = albums.results.slice(0, (page + 1) * ALBUM_LIMIT);
@@ -43,10 +44,10 @@ const SearchResultPage = () => {
   };
 
   useEffect(() => {
-    if (keyword) {
+    if (term) {
       fetchAlbumList();
     }
-  }, [keyword]);
+  }, [term]);
 
   const isLoadMore =
     albums.results.length > 0 && albums.results.length > albumList.length;
@@ -60,7 +61,7 @@ const SearchResultPage = () => {
         ) : (
           <Fragment>
             <p className={styles.search_result}>
-              {lang.searchResultFor}: <span>{keyword}</span>
+              {lang.searchResultFor}: <span>{term}</span>
             </p>
             <div className={styles.card_container}>
               {albumList.map((album, key) => {
